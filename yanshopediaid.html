@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadhan Kareem 1447 H</title>
+    <!-- Google Fonts: Poppins untuk teks umum, Amiri untuk sentuhan arab/klasik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratis) untuk ikon masjid, bulan, dll -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #f9f5f0 0%, #f0e9db 100%);
+            color: #2d3e2f;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dekorasi bulan sabit dan bintang di latar (opsional) */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 215, 140, 0.05) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 70%, rgba(200, 160, 80, 0.05) 0%, transparent 25%),
+                              url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40" opacity="0.1"><path fill="%23b78c4a" d="M50 10 L61 40 L93 40 L68 57 L79 88 L50 70 L21 88 L32 57 L7 40 L39 40 Z" /></svg>');
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            flex: 1;
+        }
+
+        /* Header sederhana */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 2px dashed #d4b48c;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: #8b6e4b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #4b3a2b;
+            font-family: 'Amiri', serif;
+            letter-spacing: 1px;
+        }
+
+        .langit-date {
+            background: #fff3e0;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #5e4a36;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            border: 1px solid #ebd5b0;
+        }
+
+        .langit-date i {
+            margin-right: 8px;
+            color: #b78c4a;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 245, 235, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 60px 60px 30px 30px;
+            box-shadow: 0 20px 30px -10px rgba(110, 80, 50, 0.15);
+            border: 1px solid rgba(235, 205, 167, 0.5);
+            margin-bottom: 60px;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            color: #8f6a3c;
+            margin-bottom: 15px;
+            animation: softGlow 3s infinite alternate;
+        }
+
+        @keyframes softGlow {
+            0% { filter: drop-shadow(0 5px 10px rgba(183, 140, 74, 0.3)); transform: scale(1); }
+            100% { filter: drop-shadow(0 10px 20px rgba(183, 140, 74, 0.6)); transform: scale(1.02); }
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 4rem;
+            color: #4a3724;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 5px rgba(255, 215, 140, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #7a5d3f;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.2rem;
+            color: #3e3a35;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(2px);
+            border: 1px solid #e9d5bb;
+        }
+
+        .btn-ramadhan {
+            display: inline-block;
+            background: linear-gradient(145deg, #6f4e2e, #8f6a3c);
+            color: #fef7e9;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 12px 20px -12px #5f4a2e;
+            transition: all 0.3s ease;
+            border: 1px solid #c9a155;
+        }
+
+        .btn-ramadhan i {
+            margin-right: 8px;
+        }
+
+        .btn-ramadhan:hover {
+            background: linear-gradient(145deg, #5e3f22, #785a32);
+            box-shadow: 0 18px 25px -12px #4a3a22;
+            transform: translateY(-3px);
+        }
+
+        /* Kartu fitur */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .card {
+            background: rgba(255, 249, 240, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 30px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 25px -15px rgba(70, 50, 30, 0.2);
+            border: 1px solid #ecdbba;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -12px #947a5a;
+            border-color: #caad7c;
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            color: #b78c4a;
+            margin-bottom: 15px;
+            background: #faead3;
+            width: 90px;
+            height: 90px;
+            line-height: 90px !important;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 0 #dbbd95;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            color: #5a412a;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #4e4236;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .card .more {
+            color: #8f6a3c;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 2px dotted #b78c4a;
+            padding-bottom: 3px;
+        }
+
+        .card .more i {
+            font-size: 0.9rem;
+            transition: margin 0.2s;
+        }
+
+        .card .more:hover i {
+            margin-left: 5px;
+        }
+
+        /* Quote / Hadith */
+        .quotes-section {
+            background: #2f4f3a; /* hijau tua */
+            color: #fef3db;
+            border-radius: 80px 20px 80px 20px;
+            padding: 40px 50px;
+            margin: 60px 0;
+            box-shadow: inset 0 -5px 0 #6d8f6d, 0 25px 30px -18px #1f3a2c;
+            background-image: radial-gradient(circle at 0% 0%, #57855e, #1f3f2b);
+            position: relative;
+            border: 2px solid #eac384;
+        }
+
+        .quotes-section i {
+            font-size: 2.5rem;
+            opacity: 0.5;
+            margin-right: 10px;
+            color: #ffd78c;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .quote-source {
+            text-align: right;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-style: italic;
+            color: #e6cba2;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding: 30px 20px 20px;
+            border-top: 2px dashed #d4b48c;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            color: #4e3d2c;
+        }
+
+        .footer-left p i {
+            color: #bc8f4b;
+        }
+
+        .social a {
+            color: #6f4e2e;
+            font-size: 1.6rem;
+            margin-left: 20px;
+            transition: color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .social a:hover {
+            color: #a87c43;
+            transform: scale(1.1);
+        }
+
+        /* Responsif */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                padding: 15px 20px;
+            }
+            .logo span {
+                font-size: 1.4rem;
+            }
+            .langit-date {
+                font-size: 0.9rem;
+                padding: 6px 15px;
+            }
+            .quotes-section {
+                padding: 30px 25px;
+            }
+            .quote-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .btn-ramadhan {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header sederhana dengan tema bulan -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-moon"></i>
+                <span>Ramadhan 1447 H</span>
+            </div>
+            <div class="langit-date">
+                <i class="fas fa-calendar-alt"></i> 1 Ramadhan · 20 Februari 2026
+            </div>
+        </header>
+
+        <!-- Hero / Ucapan utama -->
+        <section class="hero">
+            <div class="hero-icon">
+                <i class="fas fa-mosque"></i>
+            </div>
+            <h1>Ramadhan Kareem</h1>
+            <h2>Marhaban yaa Ramadhan</h2>
+            <p>
+                <i class="fas fa-star" style="color: #eab45a;"></i> 
+                Selamat menunaikan ibadah puasa. Bulan penuh berkah, ampunan, dan rahmat. 
+                Semoga kita semua diberikan kekuatan iman dan kesehatan.
+                <i class="fas fa-star" style="color: #eab45a;"></i>
+            </p>
+            <a href="#" class="btn-ramadhan"><i class="fas fa-heart"></i> Niat Puasa Hari Ini</a>
+        </section>
+
+        <!-- 3 fitur / informasi seputar ramadhan -->
+        <div class="features">
+            <!-- Kartu 1: Keutamaan -->
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <h3>Keutamaan Ramadhan</h3>
+                <p>Bulan diturunkannya Al-Qur'an, pintu surga dibuka, pintu neraka ditutup. Setiap ibadah dilipatgandakan pahalanya.</p>
+                <a href="#" class="more">Baca selengkapnya <i class="fas fa-arrow-left"></i></a>
+            </div>
+            <!-- Kartu 2: Imsakiyah & Waktu -->
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Jadwal Imsakiyah</h3>
+                <p>Imsak: 04.20 | Subuh: 04.30 | Maghrib: 18.12 | Isya: 19.20 (Jakarta). Periksa jadwal kota Anda untuk ketepatan.</p>
+                <a href="#" class="more">Cek jadwal <i class="fas fa-arrow-left"></i></a>
+            </div>
+            <!-- Kartu 3: Doa Harian -->
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-hand-praying"></i>
+                </div>
+                <h3>Doa Berbuka & Sahur</h3>
+                <p>"Allahumma laka shumtu wa 'ala rizq-ika afthartu" (Ya Allah, untuk-Mu aku berpuasa, dan dengan rezeki-Mu aku berbuka).</p>
+                <a href="#" class="more">Kumpulan doa <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </div>
+
+        <!-- Hadits atau kata mutiara -->
+        <div class="quotes-section">
+            <i class="fas fa-quote-right"></i>
+            <div class="quote-text">
+                "Barangsiapa berpuasa Ramadhan karena iman dan mengharap pahala, maka diampuni dosa-dosanya yang telah lalu."
+            </div>
+            <div class="quote-source">
+                — HR. Bukhari & Muslim
+            </div>
+        </div>
+
+        <!-- Footer sederhana dengan sosial media (hiasan) -->
+        <footer>
+            <div class="footer-left">
+                <p><i class="fas fa-moon"></i>  Selamat beribadah | Ramadhan 1447 H / 2026 M</p>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript kecil untuk interaksi (jika mau, tapi hanya untuk hiasan) -->
+    <script>
+        (function() {
+            // Menambahkan efek selamat datang kecil di console (tidak mengganggu)
+            console.log("🌙 Ramadhan Kareem! Semoga berkah selalu.");
+            
+            // Jika pengguna mengklik tombol niat, munculkan notifikasi
+            const btn = document.querySelector('.btn-ramadhan');
+            if(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('🌙 Niat puasa Ramadhan: "Nawaitu shauma ghadin ‘an ada’i fardi Ramadhana hadhihis sanati lillahi ta‘ala."');
+                });
+            }
+
+            // untuk link "Baca selengkapnya" dll, cegah refresh
+            const moreLinks = document.querySelectorAll('.more');
+            moreLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('📖 Halaman ini masih dalam pengembangan. Nikmati nuansa Ramadhan!');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
